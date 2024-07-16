@@ -35,9 +35,7 @@ const Products = ({ cart, setCart }) => {
     }
 
     fetchingColors();
-  });
-
-  console.log(colors);
+  }, []);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -89,6 +87,23 @@ const Products = ({ cart, setCart }) => {
                 <label htmlFor={brand}>{brand}</label>
               </li>
             ))}
+          </ul>
+        </div>
+        <div>
+          <h3>COLORS</h3>
+          <ul className={""}>
+            {colors.map((color, index) => (
+              <li key={index}>
+                <div
+                  style={{
+                    backgroundColor: color,
+                    outline: selectedColor === color ? "3px solid red" : "",
+                  }}
+                  onClick={() => setSelectedColor(color)}
+                />
+              </li>
+            ))}
+            <button onClick={() => setSelectedColor("")}>Reset</button>
           </ul>
         </div>
       </aside>
