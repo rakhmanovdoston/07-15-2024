@@ -70,7 +70,7 @@ const Products = ({ cart, setCart }) => {
 
   return (
     <div className=" container w-[1300px] h-[100vh] flex m-auto gap-4">
-      <aside>
+      <aside className="w-[300px]">
         <div>
           <h3>BRAND</h3>
           <ul className="">
@@ -87,15 +87,20 @@ const Products = ({ cart, setCart }) => {
                 <label htmlFor={brand}>{brand}</label>
               </li>
             ))}
+            <button onClick={() => setSelectedBrand("")}>Reset</button>
           </ul>
         </div>
         <div>
           <h3>COLORS</h3>
-          <ul className={""}>
+          <ul className={" w-[200px] gap-1  flex flex-wrap"}>
             {colors.map((color, index) => (
               <li key={index}>
                 <div
                   style={{
+                    border: "1px solid black",
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
                     backgroundColor: color,
                     outline: selectedColor === color ? "3px solid red" : "",
                   }}
